@@ -1,4 +1,4 @@
-from DE.spark_hadoop_snowflake_for_DE.week2.python_examples.utils import get_conn
+from DE.spark_hadoop_snowflake_for_DE.week2_snowflake.python_examples.utils import get_conn
 
 
 con = get_conn()
