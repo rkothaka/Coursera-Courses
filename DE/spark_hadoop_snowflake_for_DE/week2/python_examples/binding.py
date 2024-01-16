@@ -48,20 +48,22 @@ conn.cursor().execute(
 
 
 # Binding data for IN operator
-col1, col2 = conn.cursor().execute(
+rec1, rec2 = conn.cursor().execute(
     "SELECT col1, col2 FROM test_table"
     " WHERE col2 IN (%s)", (
         ['test string1', 'test string3'],
     ))
 print("test_table contents where col2 contains 'test_string1' or 'test_string3'")
-print('{0}, {1}'.format(col1, col2))
+print('{0}, {1}'.format(rec1, rec2))
 
 conn.close()
 
 # Binding parameters to variables for batch inserts
 import snowflake.connector
 snowflake.connector.paramstyle='qmark'
+
 conn = connection.get_conn()
+conn.cursor().execute("USE SCHEMA DEV.CDM")
 
 rows_to_insert = [(101, 'milk'), (102, 'apple'), (103, 'egg')]
 

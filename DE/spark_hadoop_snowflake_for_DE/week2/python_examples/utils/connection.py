@@ -11,9 +11,6 @@ def get_conn():
     conn = snowflake.connector.connect(
         user=os.getenv("SNOWFLAKE_USER"),
         password=os.getenv("SNOWFLAKE_PASSWORD"),
-        account=os.getenv("SNOWFLAKE_ACCOUNT"),
-        session_parameters={
-            'QUERY_TAG': 'EndOfMonthFinancials',
-        }
+        account=os.getenv("SNOWFLAKE_ACCOUNT")
     )
     return conn
